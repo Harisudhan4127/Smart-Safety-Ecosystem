@@ -1,0 +1,439 @@
+# MASTER BUILD PROMPT: SMART SAFETY ECOSYSTEM — ADAPTIVE DESKTOP & MOBILE UI/UX
+
+## ROLE
+
+Act as a Principal Product Designer, Senior Flutter Engineer, Desktop and Mobile UX Architect, 3D Interface Specialist, IoT Dashboard Engineer, and Production Software Architect.
+
+Upgrade the existing Smart Safety Ecosystem application into a premium, highly interactive, adaptive application for desktop and mobile, with a refined CRED-inspired dark aesthetic, a clean light theme by default, immersive but restrained 3D visuals, and a simple interface that reveals advanced engineering controls only when needed.
+
+Do not create a static design mockup. Implement functional screens, real navigation, working controls, responsive layouts, theme switching, smooth interactions, persistent settings, and the existing Demo Mode and Real Hardware Mode.
+
+Inspect the current repository before changing code. Preserve working functionality, firmware integration, algorithms, and dependencies wherever possible.
+
+## 1. PRODUCT DESIGN VISION
+
+Create a polished engineering application that feels like a premium consumer technology product combined with a reliable industrial monitoring console.
+
+The visual identity should communicate:
+
+* Premium craftsmanship.
+* Clarity and simplicity.
+* Intelligent technology.
+* Trustworthy safety monitoring.
+* Smooth, precise interactions.
+* Strong visual hierarchy.
+* Accessible controls for technical and nontechnical users.
+
+Use the restrained visual elegance of CRED as inspiration for the dark theme, including rich charcoal surfaces, refined typography, subtle metallic details, sophisticated depth, and carefully controlled highlights.
+
+Do not copy CRED branding, logos, proprietary assets, or its exact interface. Create an original visual identity appropriate for a safety-monitoring product.
+
+The application must look professional rather than like a generic admin template, a neon cyberpunk dashboard, or an overcrowded industrial control panel.
+
+## 2. ADAPTIVE PLATFORM SUPPORT
+
+Support the following layouts using one consistent design system:
+
+### Desktop
+
+* Primary target: Linux desktop in the existing development environment.
+* Support Windows and macOS where the existing framework and dependencies permit.
+* Use a collapsible navigation sidebar.
+* Provide a top application bar with mode, connection status, and user controls.
+* Use multi-column dashboards, detailed telemetry charts, tables, maps, and optional side panels.
+* Support keyboard navigation, shortcuts where useful, resizing, and minimum-window constraints.
+* Use desktop-appropriate dialogs, context menus, tooltips, and hover feedback.
+
+### Tablet
+
+* Use a collapsible rail or compact navigation.
+* Reflow dashboards into fewer columns.
+* Convert side panels into drawers or sheets.
+* Preserve important status indicators and primary actions.
+
+### Mobile
+
+* Use a bottom navigation bar for the most important destinations.
+* Use single-column cards and vertically stacked content.
+* Replace wide tables with compact cards or horizontally scrollable data views.
+* Use touch-friendly controls with a minimum target around 44–48 logical pixels.
+* Use bottom sheets for contextual actions where appropriate.
+* Keep the primary action visible without overwhelming the screen.
+* Support portrait and landscape layouts.
+* Respect system safe areas, text scaling, and the on-screen keyboard.
+
+Use responsive breakpoints based on available window width rather than assuming the device type. Avoid maintaining separate duplicated interfaces for desktop and mobile.
+
+## 3. THEME SYSTEM
+
+Implement three persistent theme choices:
+
+1. Light
+2. Dark
+3. System
+
+### Default theme: Light
+
+On a fresh installation, use Light Mode.
+
+Suggested light palette:
+
+* Main background: #F7F8FA
+* Primary surface: #FFFFFF
+* Secondary surface: #EEF2F6
+* Primary text: #172033
+* Secondary text: #64748B
+* Border: #DCE3EB
+* Primary accent: #087F8C
+* Secondary accent: #3563E9
+* Success: #21845B
+* Warning: #B7791F
+* Critical: #C43D4B
+
+The light theme should feel clean, refined, airy, and professional, with soft neutral backgrounds, clear white surfaces, restrained shadows, and teal or blue accents.
+
+### Premium dark theme
+
+Design a distinctive CRED-inspired dark interface:
+
+* Main background: #0B0D10
+* Primary surface: #12161C
+* Secondary surface: #1A2029
+* Elevated surface: #222A35
+* Primary text: #F5F7FA
+* Secondary text: #A4AFBD
+* Subtle border: #2B3440
+* Primary accent: #49D6C5
+* Secondary accent: #8BA8FF
+* Success: #49C58A
+* Warning: #F0BD5B
+* Critical: #FF6474
+
+Use graphite, charcoal, subtle slate, teal, and cool metallic accents. Employ layered surfaces, controlled light reflections, soft shadows, restrained gradients, and carefully placed highlights.
+
+Avoid pure-black backgrounds everywhere, excessively bright neon, glowing borders around every card, and low-contrast grey text.
+
+### Theme behavior
+
+* Default to Light Mode on first launch.
+* Save the user's theme preference persistently.
+* Support Light, Dark, and System options in Settings.
+* Apply the selected theme consistently to every screen, chart, dialog, tooltip, menu, and navigation element.
+* Update theme changes immediately without restarting the application.
+* Respect system theme changes when System is selected.
+* Provide a compact theme toggle in the application menu.
+* Use semantic theme tokens rather than hardcoded colors inside individual widgets.
+
+## 4. PREMIUM VISUAL LANGUAGE AND 3D DESIGN
+
+Create an original, polished interface with carefully controlled depth.
+
+### 3D visual direction
+
+Use 3D selectively for:
+
+* The application welcome screen.
+* Vehicle or sensor-device illustrations.
+* Hardware connection states.
+* The simulation laboratory.
+* Device detail panels.
+* Empty states and onboarding illustrations.
+
+Use layered cards, subtle perspective, soft ambient shadows, parallax where appropriate, realistic material cues, and gentle lighting.
+
+Where technically appropriate, consider lightweight vector-based 3D illustrations, pre-rendered transparent assets, or an optimized 3D renderer. Select the simplest approach that provides a clear visual benefit.
+
+Do not introduce a heavy real-time 3D engine merely for decoration.
+
+Do not render an entire dashboard as a 3D scene. Data, tables, forms, incident records, and engineering controls must remain readable and functional.
+
+Use restrained depth effects to create a premium appearance while preserving performance and accessibility.
+
+### Component styling
+
+* Consistent rounded corners, generally 10–18 logical pixels depending on component size.
+* Soft shadows in light mode.
+* Subtle surface separation and restrained highlights in dark mode.
+* Thin borders only where they improve visual grouping.
+* Consistent iconography.
+* Clear typography hierarchy.
+* Clean, intentional spacing.
+* Smooth hover, focus, pressed, selected, and disabled states.
+* Skeleton loaders only for genuine loading operations.
+
+Avoid excessive glassmorphism, nested cards, decorative gradients, and oversized empty dashboard widgets.
+
+## 5. SIMPLE DEFAULT INTERFACE, ADVANCED CONTROLS ON DEMAND
+
+Follow progressive disclosure: show essential information first and reveal complexity only when requested.
+
+### Default experience
+
+The Overview screen should display:
+
+* Current operating mode.
+* Vehicle device status.
+* Wearable device status.
+* Gateway and backend connectivity.
+* Recent incidents.
+* Latest valid location.
+* Battery or sensor-health indicators when available.
+* One prominent primary action appropriate to the active mode.
+* A clear entry point to the Simulation Lab.
+
+Use concise labels, understandable status messages, and helpful empty states.
+
+### Advanced experience
+
+Move less frequently used controls into:
+
+* An Advanced Settings section.
+* Expandable detail panels.
+* Contextual menus.
+* An Advanced toggle on relevant screens.
+* Diagnostic and engineering pages.
+
+Advanced features may include:
+
+* Raw sensor streams.
+* Filtered sensor values.
+* AWTRA weights and thresholds.
+* Accident-detection calibration.
+* Packet inspection.
+* Radio diagnostics.
+* Retry configuration.
+* Simulation noise controls.
+* Fault injection.
+* Protocol debugging.
+* Database and logging settings.
+* Performance diagnostics.
+
+Never hide a critical warning, connection failure, or safety-relevant status behind an advanced option.
+
+Do not display editable production thresholds without validation, permissions, and clear consequences.
+
+## 6. APPLICATION INFORMATION ARCHITECTURE
+
+Use a consistent navigation structure.
+
+### Primary destinations
+
+1. Overview
+2. Accident Monitor
+3. Wearable Monitor
+4. Simulation Lab
+5. Device Manager
+6. Incident History
+7. Settings
+
+### Secondary destinations
+
+* System diagnostics.
+* Advanced sensor configuration.
+* Communication and protocol diagnostics.
+* Database management.
+* Application information.
+
+On desktop, show primary navigation in a sidebar. On mobile, use a compact bottom navigation for the most important destinations and place remaining destinations under More or a navigation drawer.
+
+Keep the same underlying routes and domain logic across form factors.
+
+## 7. DEMO MODE AND REAL HARDWARE MODE
+
+Preserve the existing two-mode product architecture.
+
+### Demo Mode
+
+* Clearly identify the interface as simulated.
+* Work without physical devices or internet.
+* Provide scenario selection, playback, pause, reset, and playback speed.
+* Show simulated accident events, GPS, LoRa transmission, gateway processing, and backend status.
+* Simulate sensor readings, wearable classification, and connection failures.
+* Make scenarios repeatable.
+* Prevent real emergency calls and real external notifications.
+* Clearly distinguish simulated data from real device measurements.
+
+### Real Hardware Mode
+
+* Require an explicit mode switch and confirmation.
+* Connect only through documented device adapters and supported protocols.
+* Display actual connection, freshness, sensor, and communication states.
+* Never replace missing real data with simulated data.
+* Display transmission attempts separately from confirmed acknowledgements.
+* Show errors and provide appropriate recovery controls.
+* Require independent authorization before enabling external notification services.
+
+Use distinct visual mode indicators in both themes. Never rely on color alone to communicate whether the application is operating in Demo or Real Mode.
+
+## 8. INTERACTION AND ANIMATION QUALITY
+
+Create a highly interactive experience while preserving responsiveness and reliability.
+
+Implement:
+
+* Smooth navigation transitions.
+* Responsive card expansion.
+* Animated theme switching.
+* Interactive telemetry charts.
+* Live-looking but truthful status updates.
+* Incident arrival animations.
+* Animated simulation progress.
+* Hover and pressed states on desktop.
+* Touch feedback on mobile.
+* Subtle 3D tilt only for suitable decorative or interactive components.
+* Smooth drawer and bottom-sheet transitions.
+* Loading, empty, success, warning, error, and disabled states.
+* Undo or confirmation for destructive actions where appropriate.
+
+### Animation guidelines
+
+Use short, purposeful transitions, generally around 150–300 milliseconds where appropriate.
+
+Use natural easing and avoid excessive bounce or elastic movement in engineering workflows.
+
+Avoid continuous decorative animation, excessive particle effects, flashing alerts, and heavy blur layers.
+
+Animations must not delay accident processing, device communication, event logging, or critical warning visibility.
+
+Respect reduced-motion preferences where supported.
+
+Keep chart rendering efficient. Process incoming telemetry independently from visual refresh frequency, use bounded data buffers, and avoid unnecessary full-screen rebuilds.
+
+Use real sensor updates in Real Mode and deterministic scripted updates in Demo Mode.
+
+## 9. RESPONSIVE COMPONENT SYSTEM
+
+Create reusable, theme-aware components for:
+
+* Application shell.
+* Navigation sidebar and bottom bar.
+* Operating-mode indicator.
+* Device-status cards.
+* Metric cards.
+* Incident cards.
+* Sensor-value panels.
+* Telemetry charts.
+* Map panels.
+* Connection badges.
+* Status timelines.
+* Confirmation dialogs.
+* Settings sections.
+* Advanced configuration panels.
+* Empty states.
+* Error banners.
+* Toast or snackbar notifications.
+* Responsive data tables.
+* Search and filter controls.
+
+Use shared spacing, typography, border-radius, elevation, color, and animation tokens.
+
+Avoid duplicate desktop and mobile implementations when the same component can adapt cleanly.
+
+## 10. PERFORMANCE AND IMPLEMENTATION FRAMEWORK
+
+Inspect the existing codebase before choosing or replacing dependencies.
+
+If the existing application uses Flutter, prioritize a responsive Flutter implementation using the existing architecture where feasible.
+
+Use a suitable state-management approach already present in the project; introduce Riverpod only if it materially improves state isolation and maintainability.
+
+Use reusable widgets, clear domain models, asynchronous I/O, and appropriate dependency injection.
+
+Separate UI state from sensor processing, simulation, persistence, and hardware communication.
+
+Use efficient chart updates, bounded streams, correct lifecycle cleanup, and background processing where supported and necessary.
+
+Do not introduce heavyweight animation, graphics, state-management, or networking libraries without a concrete requirement.
+
+Profile actual performance before applying complex optimizations.
+
+## 11. ACCESSIBILITY AND END-USER FRIENDLINESS
+
+Implement:
+
+* Readable typography and scalable text.
+* Accessible contrast in both themes.
+* Keyboard navigation and visible focus indicators.
+* Tooltips for unfamiliar technical controls.
+* Meaningful labels for icons and status indicators.
+* Non-color indicators for warnings and errors.
+* Clear confirmation dialogs for destructive or consequential actions.
+* Helpful explanations for unavailable hardware.
+* Friendly empty states with an appropriate next action.
+* Responsive controls for mouse, keyboard, and touch.
+* Concise language rather than unnecessary technical jargon.
+
+Keep advanced technical details available without making them mandatory for ordinary users.
+
+## 12. VISUAL CONSISTENCY AND QUALITY REVIEW
+
+Review every screen at narrow mobile width, tablet width, and wide desktop width.
+
+Verify:
+
+* No overflowing content.
+* No clipped text or buttons.
+* No inconsistent spacing.
+* No unreadable chart labels.
+* No broken theme colors.
+* No excessive card nesting.
+* No decorative control that appears functional but does nothing.
+* No layout that depends on a fixed desktop width.
+* No inaccessible critical actions.
+* No misleading simulated or live status.
+* No unnecessary 3D rendering or heavy visual effects.
+
+Use the same design language throughout the product.
+
+## 13. IMPLEMENTATION WORKFLOW
+
+Work incrementally.
+
+1. Inspect the repository and current application architecture.
+2. Identify reusable code and existing limitations.
+3. Define the design tokens and responsive layout strategy.
+4. Implement Light Mode as the default.
+5. Implement the premium Dark Mode and persistent theme settings.
+6. Build the adaptive application shell.
+7. Refine the Overview screen and primary navigation.
+8. Apply the design system to all existing screens.
+9. Improve Demo Mode and its interactive scenario controls.
+10. Preserve and validate Real Hardware Mode.
+11. Add restrained 3D visuals where they provide genuine value.
+12. Optimize rendering, animations, and telemetry updates.
+13. Run formatting, static analysis, unit tests, widget tests, and platform builds.
+14. Fix regressions before continuing.
+15. Document implemented features and remaining limitations.
+
+Do not replace working functionality with static mockups.
+
+Do not report tests, hardware connections, or platform builds as successful without verification.
+
+## 14. DEFINITION OF DONE
+
+The implementation is complete when:
+
+* Light Mode is the default on first launch.
+* Light, Dark, and System theme preferences work and persist.
+* The dark theme has a premium, original CRED-inspired aesthetic.
+* Desktop, tablet, and mobile layouts adapt correctly.
+* Navigation and all primary controls function.
+* Default screens are simple and advanced features are progressively disclosed.
+* 3D elements are restrained, useful, and performant.
+* Animations are smooth without interfering with data processing.
+* Demo Mode works offline and remains clearly simulated.
+* Real Hardware Mode uses actual data and reports failures truthfully.
+* Existing accident detection and wearable logic remain intact.
+* Data persistence and incident history continue to work.
+* Tests and supported platform builds are verified.
+* Accessibility, error handling, and documentation are complete.
+
+## FINAL EXECUTION INSTRUCTION
+
+Begin by inspecting the repository and reporting a concise implementation plan.
+
+Then implement the adaptive design system and the first complete application experience: responsive navigation, default Light Mode, premium Dark Mode, persistent theme selection, clear Demo/Real mode indicators, and a functional Overview screen.
+
+Continue through the remaining screens and interactions without breaking existing functionality.
+
+Prioritize an exceptional user experience, a refined CRED-inspired dark aesthetic, a clean light theme, purposeful 3D depth, smooth performance, responsive layouts, and production-quality code over visual effects alone.
