@@ -1,0 +1,46 @@
+name: smart_safety_ecosystem
+description: "Smart Safety Ecosystem — LoRa accident alert and wearable screening console."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.4
+
+# Dependency policy
+# -----------------
+# The dependency surface is intentionally tiny. State management uses Flutter's
+# built-in ChangeNotifier/ValueListenableBuilder plus InheritedNotifier, telemetry
+# charts are hand-painted with CustomPainter (no charting package), and there is
+# no 3D/animation package. Only platform persistence is external.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Typed key/value persistence for theme, operating mode and user settings.
+  shared_preferences: ^2.3.3
+
+  # Resolves a writable documents directory for the incident log JSON store.
+  # sqflite is deliberately not used: it has no Linux/Windows/macOS support,
+  # and incident history must persist on every target platform.
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
